@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>COSMOA · AI 도구함</title>
+  <meta name="description" content="우리 조가 직접 써보고 고른 AI 서비스 모음">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- 사이드바 -->
+    <aside class="sidebar" id="sidebar">
+      <a class="logo" href="#" id="logoLink" aria-label="COSMOA 홈">
+        <img class="logo-mark" src="img/logo.svg" alt="" width="34" height="34">
+        <span class="logo-text">
+          <span class="logo-name">COSMOA</span>
+          <span class="logo-sub">AI 도구함</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="분야"></nav>
+
+      <div class="role-card" id="roleCard"></div>
+    </aside>
+
+    <!-- 메인 -->
+    <main class="main" id="main">
+      <header class="topbar">
+        <label class="search" for="searchInput">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="searchInput" type="search" placeholder="이름이나 하고 싶은 일로 검색 (자막, 로고, 회의록…)" autocomplete="off">
+        </label>
+        <div class="topbar-right">
+          <button class="role-chip" id="roleChip" type="button" aria-haspopup="dialog"></button>
+          <button class="btn primary" id="addBtn" type="button" hidden>+ 서비스 추가</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h1 class="hero-title">우리 조가 직접 써보고 고른<br>AI 서비스 모음</h1>
+        <p class="hero-desc">분야별로 정리하고, 써본 조원이 소감을 남겼어요. 요금과 기능은 자주 바뀌니 공식 사이트에서 다시 확인해 주세요.</p>
+        <div class="stats" id="stats"></div>
+      </section>
+
+      <section class="filters">
+        <div class="segment" id="priceSeg" role="group" aria-label="요금 필터">
+          <button type="button" data-price="" aria-pressed="true">전체 요금</button>
+          <button type="button" data-price="무료" aria-pressed="false">무료</button>
+          <button type="button" data-price="무료+유료" aria-pressed="false">무료+유료</button>
+          <button type="button" data-price="유료" aria-pressed="false">유료</button>
+        </div>
+        <label class="check">
+          <input type="checkbox" id="triedOnly">
+          <span>직접 써본 것만</span>
+        </label>
+      </section>
+
+      <section class="list-section">
+        <div class="list-head">
+          <h2 class="list-title" id="listTitle">전체</h2>
+          <span class="list-count" id="listCount"></span>
+        </div>
+        <div class="list" id="list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- 드로어 -->
+  <div class="scrim" id="drawerScrim" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="drawerTitle" hidden>
+    <div class="drawer-inner" id="drawerInner"></div>
+  </aside>
+
+  <!-- 모달 -->
+  <div class="modal-wrap" id="modalWrap" hidden>
+    <div class="modal-scrim" id="modalScrim"></div>
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+  </div>
+
+  <!-- 토스트 -->
+  <div class="toast" id="toast" aria-live="polite" hidden></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
